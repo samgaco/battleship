@@ -1,13 +1,15 @@
-const newShip = () => {
-  let position = [];
-  let hits = 0;
-
-  const hit = () => {
-    this.isSunk() ? undefined : this.hits += 1;
+const newShip = ((length) => {
+  return {
+    length: length,
+    position: [],
+    hits: 0,
+    hit() {
+      this.isSunk() ? undefined : this.hits += 1;
+    },
+    isSunk() {
+      return this.hits >= this.length
+    }
   }
-
-  const isSunk = () => {
-    return this.hits >= this.length
-  }
+})
 
 module.exports = newShip;
