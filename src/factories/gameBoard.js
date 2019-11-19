@@ -39,7 +39,7 @@ const gameBoard = ((ships = []) => {
 
       },
 
-      receiveAttack(coord, ship) {
+      receiveAttack(coord) {
         let found = false;
         let index = 0
         this.ships.forEach(ship => {

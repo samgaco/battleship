@@ -58,6 +58,6 @@ test('it updates the table with "M" incase of a miss', () => {
   let randomShip = newShip(4)
   let gBoard = gameBoard();
   gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]]);
-  gBoard.receiveAttack([0, 4], randomShip)
+  gBoard.receiveAttack([0, 4])
   expect(gBoard.table[0][4]).toBe('M');
 });
