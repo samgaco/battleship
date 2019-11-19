@@ -41,6 +41,23 @@ test('it should not be able to place a ship where there is a ship already', () =
     let randomShip = newShip(4)
     let gBoard = gameBoard();
     gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]]);
-    expect(gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]])).toThrow('Error Already Occupied')
+    expect(gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]])).toThrow(new Error('Space already occupied'));
 });
 
+// testing receiveAttack
+
+test('it updates the table with "O" at a position where the ship is hit', () => {
+  let randomShip = newShip(4)
+  let gBoard = gameBoard();
+  gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]]);
+  gBoard.receiveAttack([0, 1], randomShip)
+  expect(gBoard.table[0][1]).toBe('O');
+});
+
+test('it updates the table with "M" incase of a miss', () => {
+  let randomShip = newShip(4)
+  let gBoard = gameBoard();
+  gBoard.placeShip(randomShip, [[0,0],[0,1],[0,2],[0,3]]);
+  gBoard.receiveAttack([0, 4], randomShip)
+  expect(gBoard.table[0][4]).toBe('M');
+});
