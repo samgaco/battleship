@@ -29,7 +29,7 @@ const gameBoard = ((ships = []) => {
                       this.table[el[0]][el[1]] = 'X'
                       ship.position.push([el[0],el[1]]);
                   }else{
-                      throw new Error('Space already occupied')
+                      throw Error('Space already occupied');
                   }   });
           }else{
               throw Error;
@@ -43,7 +43,7 @@ const gameBoard = ((ships = []) => {
         let found = false;
         let index = 0
         this.ships.forEach(ship => {
-          console.log(ship.position.includes(coord), ship.position, coord)
+          // console.log(ship.position.includes(coord), ship.position, coord)
           for(let i = 0; i < ship.position.length; i++){
             if (ship.position[i][0] === coord[0] && ship.position[i][1] === coord[1]){
               found = true;
@@ -56,10 +56,17 @@ const gameBoard = ((ships = []) => {
         if(found === false){
           this.table[coord[0]][coord[1]] = 'M';
       }
-    }
-    }
+    },
 
-
+    gameStop(){
+      let counter = 0;
+      this.ships.forEach(ship => {
+        if(ship.isSunk() === true){
+            counter += 1  } 
+      })
+      return counter === this.ships.length;
+           }
+    }
 })
 
 
