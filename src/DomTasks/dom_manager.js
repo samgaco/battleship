@@ -41,8 +41,8 @@ const DomTasks = (() => {
 
   const addAttackFunctionality = (filledBoard, box) =>{
     box.addEventListener('click', () =>{
-          console.log("whats hapeening , listener")
-          filledBoard.receiveAttack(   [Number(box.dataset.coordinates[0]),Number(box.dataset.coordinates[1])])
+          let mark = filledBoard.receiveAttack([Number(box.dataset.coordinates[0]),Number(box.dataset.coordinates[1])])
+          box.textContent = mark;
         })
 }
 

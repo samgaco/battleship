@@ -56,6 +56,7 @@ const gameBoard = ((ships = []) => {
         if(found === false){
           this.table[coord[0]][coord[1]] = 'M';
       }
+      return this.table[coord[0]][coord[1]]
     },
 
     gameStop(){
