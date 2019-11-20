@@ -32,7 +32,7 @@ const gameBoard = ((ships = []) => {
                       throw Error('Space already occupied');
                   }   });
           }else{
-              throw Error;
+              throw Error('Not valid!');
           }
 
           this.ships.push(ship);
@@ -62,7 +62,7 @@ const gameBoard = ((ships = []) => {
       let counter = 0;
       this.ships.forEach(ship => {
         if(ship.isSunk() === true){
-            counter += 1  } 
+            counter += 1  }
       })
       return counter === this.ships.length;
            }
