@@ -1,4 +1,5 @@
 import gameController from '../main_game';
+import player from '../factories/player';
 
 const DomTasks = (() => {
 
@@ -39,30 +40,36 @@ const DomTasks = (() => {
     })
   }
 
-  const addAttackFunctionality = (filledBoard, box) =>{
-    box.addEventListener('click', () =>{
-          let mark = filledBoard.receiveAttack([Number(box.dataset.coordinates[0]),Number(box.dataset.coordinates[1])])
-          box.textContent = mark;
-        })
-}
-
   const fillBoxes = (filledBoard, id) => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
           if(id === 'ai-board'){
             box.textContent = '';
+            // how to attack with the AI here
           }else{
-            console.log('yes!')
             box.textContent =  filledBoard.table[indexRow-1][indexBox];
+            addAttackFunctionality(filledBoard, box); 
+            // the AI should execute after the player throws 
           }
-          addAttackFunctionality(filledBoard, box);
         })
       })
   }
 
+
+  const addAttackFunctionality = (filledBoard, box) =>{
+    box.addEventListener('click', () =>{
+          let coorX = Number(box.dataset.coordinates[0]);
+          let coorY = Number(box.dataset.coordinates[1]);
+          let mark = filledBoard.receiveAttack([coorX, coorY])
+          box.textContent = mark;
+    })
+}
+
+
   const renderBoards = () => {
-    let playerBoard = gameController.initializePlayer();
-    let aiBoard = gameController.initializeAiPlay();
+    let playerBoard = gameController.initializeBoard1();
+    let aiBoard = gameController.initializeBoard2();
+    let playerai = player();
     drawBoards();
     fillBoxes(playerBoard,'player-board');
     fillBoxes(aiBoard, 'ai-board');

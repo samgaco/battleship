@@ -1,6 +1,6 @@
-const player = (() => {
+const player = ((turnV = true) => {
 
-    let turn = true;
+    let turn = turnV;
     let PosTaken = Array(100).fill().map((x,i)=>i+1);
     let movesdone = []
 

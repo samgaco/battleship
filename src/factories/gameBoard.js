@@ -41,9 +41,7 @@ const gameBoard = ((ships = []) => {
 
       receiveAttack(coord) {
         let found = false;
-        let index = 0
         this.ships.forEach(ship => {
-          // console.log(ship.position.includes(coord), ship.position, coord)
           for(let i = 0; i < ship.position.length; i++){
             if (ship.position[i][0] === coord[0] && ship.position[i][1] === coord[1]){
               found = true;

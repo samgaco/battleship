@@ -1,10 +1,10 @@
 import gameBoard from './factories/gameBoard';
-import player from './factories/player';
 import newShip from './factories/ship';
 import DomTasks from './DomTasks/dom_manager';
 
+
 const gameController = (() => {
-  const initializeAiPlay = () => {
+  const initializeBoard1 = () => {
     let board = gameBoard();
     let ship1 = newShip(1);
     let ship2 = newShip(2);
@@ -19,7 +19,7 @@ const gameController = (() => {
     return board
   }
 
-  const initializePlayer = () => {
+  const initializeBoard2 = () => {
     let board = gameBoard();
     let ship1 = newShip(1);
     let ship2 = newShip(2);
@@ -34,11 +34,23 @@ const gameController = (() => {
     return board
   }
 
+  const switchTurns = (player1, player2) =>{
+    if(player1.turn === true){
+      player1.turn === false;
+      player2.turn === true;
+    }else{
+      player1.turn === true;
+      player2.turn === false;
+    }
+
+    return {player1, player2}
+  }
+
   const startGame = () => {
     DomTasks.renderBoards()
   }
 
-  return {initializeAiPlay, initializePlayer, startGame}
+  return {initializeBoard1, initializeBoard2, startGame, switchTurns}
 
 })();
 
