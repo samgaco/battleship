@@ -1,3 +1,3 @@
-import DomManager from './DomTasks/dom_manager';
+import gameController from './main_game';
 
-DomManager.renderBoards();
+gameController.startGame();

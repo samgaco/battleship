@@ -1,6 +1,6 @@
 .box {
-  height: 3em;
-  width: 3em;
+  height: 2.5em;
+  width: 2.5em;
   border: 2px solid #000;
   margin: 0;
   padding: 0;
@@ -16,7 +16,6 @@
 }
 
 #player-board, #ai-board {
-  display: inline-block;
   width: 47%;
 }
 
@@ -24,4 +23,7 @@
   padding-top: 15vh;
   width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

@@ -49,7 +49,12 @@ const DomTasks = (() => {
   const fillBoxes = (filledBoard, id) => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
-          box.textContent =  filledBoard.table[indexRow-1][indexBox];
+          if(id === 'ai-board'){
+            box.textContent = '';
+          }else{
+            console.log('yes!')
+            box.textContent =  filledBoard.table[indexRow-1][indexBox];
+          }
           addAttackFunctionality(filledBoard, box);
         })
       })

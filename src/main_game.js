@@ -1,6 +1,7 @@
 import gameBoard from './factories/gameBoard';
 import player from './factories/player';
 import newShip from './factories/ship';
+import DomTasks from './DomTasks/dom_manager';
 
 const gameController = (() => {
   const initializeAiPlay = () => {
@@ -33,11 +34,11 @@ const gameController = (() => {
     return board
   }
 
-  // const startGame = () => {
-  //
-  // }
+  const startGame = () => {
+    DomTasks.renderBoards()
+  }
 
-  return {initializeAiPlay, initializePlayer}
+  return {initializeAiPlay, initializePlayer, startGame}
 
 })();
 
