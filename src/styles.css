@@ -1,9 +1,14 @@
 .box {
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
   border: 2px solid #000;
   margin: 0;
   padding: 0;
+  cursor: pointer;
+}
+
+.box:hover{
+  background: rgb(250, 185, 64);
 }
 
 #player-board{

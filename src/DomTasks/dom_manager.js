@@ -19,6 +19,7 @@ const DomTasks = (() => {
       for(let i = 0; i < 10; i += 1){
         let box = document.createElement('div');
         box.setAttribute('id', `row-${index}-${i}`)
+        box.dataset.coordinates = `${index}${i}`;
         box.classList.add('box');
         row.appendChild(box);
       }
@@ -26,7 +27,7 @@ const DomTasks = (() => {
     return rows;
   }
 
-  const drawBoards = (playerBoard, aiBoard) => {
+  const drawBoards = () => {
     const playerRows = drawBoxes();
     playerRows.forEach(row => {
       document.querySelector('#player-board').appendChild(row);
@@ -38,10 +39,28 @@ const DomTasks = (() => {
     })
   }
 
+  const addAttackFunctionality = (filledBoard, box) =>{
+    box.addEventListener('click', () =>{
+          console.log("whats hapeening , listener")
+          filledBoard.receiveAttack(   [Number(box.dataset.coordinates[0]),Number(box.dataset.coordinates[1])])
+        })
+}
+
+  const fillBoxes = (filledBoard, id) => {
+      document.getElementById(id).childNodes.forEach((row, indexRow) =>{
+        row.childNodes.forEach((box, indexBox) => {
+          box.textContent =  filledBoard.table[indexRow-1][indexBox];
+          addAttackFunctionality(filledBoard, box);
+        })
+      })
+  }
+
   const renderBoards = () => {
     let playerBoard = gameController.initializePlayer();
     let aiBoard = gameController.initializeAiPlay();
-    drawBoards(playerBoard, aiBoard);
+    drawBoards();
+    fillBoxes(playerBoard,'player-board');
+    fillBoxes(aiBoard, 'ai-board');
   }
 
   return {renderBoards}
