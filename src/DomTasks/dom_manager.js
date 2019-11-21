@@ -47,20 +47,20 @@ const DomTasks = (() => {
           let coorX = coorAI[0];
           let coorY = coorAI[1];
           let mark = filledBoard.receiveAttack([coorX, coorY])
-          document.getElementById(`ai-row-${coorAI[0]}-${coorAI[1]}`).textContent = mark;
+          document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`).textContent = mark;
     })
 }
 
 
-  const fillBoxes = (filledBoard, id, playerai = false) => {
+  const fillBoxes = (filledBoard, id, playerai) => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
-          if(id === 'ai-board' && playerai){
+          if(id === 'ai-board'){
             box.textContent = '';
-            addAiAttackFunctionality(filledBoard, box, playerai)
+            addAttackFunctionality(filledBoard, box, playerai)
           }else{
             box.textContent =  filledBoard.table[indexRow-1][indexBox];
-            addAttackFunctionality(filledBoard, box); 
+            addAiAttackFunctionality(filledBoard, box, playerai); 
             // the AI should execute after the player throws 
           }
         })
@@ -83,7 +83,7 @@ const DomTasks = (() => {
     let aiBoard = gameController.initializeBoard2();
     let playerai = player();
     drawBoards();
-    fillBoxes(playerBoard,'player-board', false);
+    fillBoxes(playerBoard,'player-board', playerai);
     fillBoxes(aiBoard, 'ai-board', playerai);
   }
 
