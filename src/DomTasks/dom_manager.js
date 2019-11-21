@@ -69,12 +69,15 @@ const gameOver = (board, msg) => {
   });
 
   let gameOver = document.querySelector('.game-over')
-  gameOver.textContent = `
+  let gameOverMsg = document.querySelector('#over')
+  gameOverMsg.textContent = `
     ${msg}
     ${board.shipsSunk()} ships taken down!
   `;
-  gameOver.style.display = 'block';
-  alert(msg);
+  gameOver.style.display = 'table-cell';
+  document.querySelector('#restart').addEventListener('click', () => {
+    location.reload();
+  })
 }
 
 const displayInfo = (board, id) => {
