@@ -31,7 +31,7 @@ const player = ((turnV = true) => {
         let randMove = PosTaken[Math.floor(Math.random() * PosTaken.length)];
         PosTaken.splice(PosTaken.indexOf(randMove),1)
         movesdone.push(randMove)
-        return randMove
+        return coorMaps[randMove]
     }
 
     return{aiPlay, PosTaken, turn, movesdone}
