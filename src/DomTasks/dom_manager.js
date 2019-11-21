@@ -61,6 +61,12 @@ const addStylesBoxes = (mark, box) =>{
 }
 
 const gameOver = (msg) => {
+  let aiBoard = document.querySelector('#ai-board')
+  let children = aiBoard.childNodes
+  let nodeList = [ ...children ];
+  nodeList.forEach(node => {
+    node.parentNode.replaceChild(node.cloneNode(true), node);
+  });
   alert(msg);
 }
 
