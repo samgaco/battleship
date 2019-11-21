@@ -60,7 +60,7 @@ const addStylesBoxes = (mark, box) =>{
   }
 }
 
-const addAttackFunctionality = (filledBoard, box, playerai) =>{
+const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
   box.addEventListener('click', () =>{
         let coorX = Number(box.dataset.coordinates[0]);
         let coorY = Number(box.dataset.coordinates[1]);
@@ -72,7 +72,7 @@ const addAttackFunctionality = (filledBoard, box, playerai) =>{
         let coorAI = playerai.aiPlay();
         let coorXai = coorAI[0];
         let coorYai = coorAI[1];
-        let markai = filledBoard.receiveAttack([coorXai, coorYai])
+        let markai = playerBoard.receiveAttack([coorXai, coorYai])
 
         let ownbox = document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`)
 
@@ -83,12 +83,12 @@ const addAttackFunctionality = (filledBoard, box, playerai) =>{
 }
 
 
-  const fillBoxes = (filledBoard, id, playerai) => {
+  const fillBoxes = (filledBoard, id, playerai, playerBoard=null,) => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
           if(id === 'ai-board'){
             box.style.background = '#7bd6e2';
-            addAttackFunctionality(filledBoard, box, playerai)
+            addAttackFunctionality(filledBoard, box, playerai, playerBoard)
           }else{
             addStylesBoxes(filledBoard.table[indexRow-1][indexBox], box);
           }
@@ -102,7 +102,7 @@ const addAttackFunctionality = (filledBoard, box, playerai) =>{
     let playerai = player();
     drawBoards();
     fillBoxes(playerBoard,'player-board', playerai);
-    fillBoxes(aiBoard, 'ai-board', playerai);
+    fillBoxes(aiBoard, 'ai-board', playerai, playerBoard);
   }
 
   return {renderBoards}
