@@ -40,15 +40,46 @@ const DomTasks = (() => {
     })
   }
 
-  const addAiAttackFunctionality = (filledBoard, box, playerai) =>{
-    box.addEventListener('click', () =>{
-          console.log(playerai)
-          let coorAI = playerai.aiPlay();
-          let coorX = coorAI[0];
-          let coorY = coorAI[1];
-          let mark = filledBoard.receiveAttack([coorX, coorY])
-          document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`).textContent = mark;
-    })
+
+const addStylesBoxes = (mark, box) =>{
+  switch (mark) {
+    case '*':
+      box.style.background = "#7bd6e2"
+      break;
+    case 'M':
+      box.style.background = "blue"
+      break;
+    case 'X':
+      box.style.background = "black"
+      break;
+    case 'O':
+        box.style.background = "red"
+        break;
+    default:
+      box.style.background = "#7bd6e2"
+  }
+}
+
+const addAttackFunctionality = (filledBoard, box, playerai) =>{
+  box.addEventListener('click', () =>{
+        let coorX = Number(box.dataset.coordinates[0]);
+        let coorY = Number(box.dataset.coordinates[1]);
+        let mark = filledBoard.receiveAttack([coorX, coorY])
+        box.textContent = mark;
+
+        addStylesBoxes(mark, box);
+
+        let coorAI = playerai.aiPlay();
+        let coorXai = coorAI[0];
+        let coorYai = coorAI[1];
+        let markai = filledBoard.receiveAttack([coorXai, coorYai])
+
+        let ownbox = document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`)
+
+        addStylesBoxes(markai, ownbox);
+
+        ownbox.textContent = markai;
+  })
 }
 
 
@@ -56,27 +87,14 @@ const DomTasks = (() => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
           if(id === 'ai-board'){
-            box.textContent = '';
+            box.style.background = '#7bd6e2';
             addAttackFunctionality(filledBoard, box, playerai)
           }else{
-            box.textContent =  filledBoard.table[indexRow-1][indexBox];
-            addAiAttackFunctionality(filledBoard, box, playerai); 
-            // the AI should execute after the player throws 
+            addStylesBoxes(filledBoard.table[indexRow-1][indexBox], box);
           }
         })
       })
   }
-
-
-  const addAttackFunctionality = (filledBoard, box) =>{
-    box.addEventListener('click', () =>{
-          let coorX = Number(box.dataset.coordinates[0]);
-          let coorY = Number(box.dataset.coordinates[1]);
-          let mark = filledBoard.receiveAttack([coorX, coorY])
-          box.textContent = mark;
-    })
-}
-
 
   const renderBoards = () => {
     let playerBoard = gameController.initializeBoard1();

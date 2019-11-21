@@ -1,10 +1,16 @@
 .box {
   height: 2.5em;
   width: 2.5em;
-  border: 2px solid #000;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 7px 2px;
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+body{
+  background: url("./back.jpg");
+  background-size: auto;
 }
 
 .box:hover{
@@ -13,6 +19,11 @@
 
 #player-board{
   margin-right: 2em;
+  padding: 2%;
+}
+
+#ai-board {
+  padding: 2% 0% 0% 14%;
 }
 
 #player-board, #ai-board {
