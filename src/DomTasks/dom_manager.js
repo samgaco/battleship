@@ -60,24 +60,37 @@ const addStylesBoxes = (mark, box) =>{
   }
 }
 
+const gameOver = (msg) => {
+  alert(msg);
+}
+
 const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
       let coorX = Number(box.dataset.coordinates[0]);
       let coorY = Number(box.dataset.coordinates[1]);
       let mark = filledBoard.receiveAttack([coorX, coorY])
+
       box.textContent = mark;
 
       addStylesBoxes(mark, box);
+      if(filledBoard.gameStop() === true){
+        gameOver('All ai ships are dowm!')
+      }
 
-      let coorAI = playerai.aiPlay();
-      let coorXai = coorAI[0];
-      let coorYai = coorAI[1];
-      let markai = playerBoard.receiveAttack([coorXai, coorYai])
+      setTimeout(() => {
+        let coorAI = playerai.aiPlay();
+        let coorXai = coorAI[0];
+        let coorYai = coorAI[1];
+        let markai = playerBoard.receiveAttack([coorXai, coorYai])
 
-      let ownbox = document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`)
+        let ownbox = document.getElementById(`player-row-${coorAI[0]}-${coorAI[1]}`)
 
-      addStylesBoxes(markai, ownbox);
+        addStylesBoxes(markai, ownbox);
 
-      ownbox.textContent = markai;
+        ownbox.textContent = markai;
+        if(playerBoard.gameStop() === true){
+          gameOver('All player ships are dowm!')
+        }
+      }, 500);
       box.parentNode.replaceChild(box.cloneNode(), box);
 }
 
