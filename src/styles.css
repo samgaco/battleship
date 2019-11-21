@@ -90,7 +90,49 @@ body{
   margin: 2em 0 0 auto;
 }
 
+.color-meaning{
+  width: 80vw;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 2em;
+  vertical-align: middle;
+}
+
+.color-meaning span{
+  height: 2em;
+  line-height: 2em;
+  display: inline-block;
+  padding-right: 1em;
+}
+
+.color-cont{
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.color{
+  width: 2em;
+  height: 2em;
+  float: right;
+}
+
 #restart:hover{
   color: #000;
   background-color: #fff;
+}
+
+#black{
+  background-color: #000;
+}
+
+#blue{
+  background-color: blue;
+}
+
+#light-blue{
+  background-color: rgb(123, 214, 226);
+}
+
+#red{
+  background-color: red;
 }

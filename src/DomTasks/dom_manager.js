@@ -89,7 +89,7 @@ const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
       let coorY = Number(box.dataset.coordinates[1]);
       let mark = filledBoard.receiveAttack([coorX, coorY])
 
-      box.textContent = mark;
+      // box.textContent = mark;
 
       addStylesBoxes(mark, box);
       if(filledBoard.gameStop() === true){
@@ -108,7 +108,7 @@ const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
 
         addStylesBoxes(markai, ownbox);
 
-        ownbox.textContent = markai;
+        // ownbox.textContent = markai;
         displayInfo(playerBoard, 'player-board');
         if(playerBoard.gameStop() === true){
           gameOver(playerBoard, 'Ooops, you lost!');
