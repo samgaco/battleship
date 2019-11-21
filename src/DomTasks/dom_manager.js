@@ -60,14 +60,25 @@ const addStylesBoxes = (mark, box) =>{
   }
 }
 
-const gameOver = (msg) => {
+const gameOver = (board, msg) => {
   let aiBoard = document.querySelector('#ai-board')
   let children = aiBoard.childNodes
   let nodeList = [ ...children ];
   nodeList.forEach(node => {
     node.parentNode.replaceChild(node.cloneNode(true), node);
   });
+
+  let gameOver = document.querySelector('.game-over')
+  gameOver.textContent = `
+    ${msg}
+    ${board.shipsSunk()} ships taken down!
+  `;
+  gameOver.style.display = 'block';
   alert(msg);
+}
+
+const displayInfo = (board, id) => {
+    document.querySelector(`.${id}-info`).textContent = `Ships Left: ${board.shipsLeft()} out of ${board.ships.length}`;
 }
 
 const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
@@ -79,8 +90,10 @@ const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
 
       addStylesBoxes(mark, box);
       if(filledBoard.gameStop() === true){
-        gameOver('All ai ships are dowm!')
+        gameOver(filledBoard, 'You win the game!')
       }
+
+      displayInfo(filledBoard, 'ai-board');
 
       setTimeout(() => {
         let coorAI = playerai.aiPlay();
@@ -93,8 +106,9 @@ const addAttackFunctionality = (filledBoard, box, playerai, playerBoard) =>{
         addStylesBoxes(markai, ownbox);
 
         ownbox.textContent = markai;
+        displayInfo(playerBoard, 'player-board');
         if(playerBoard.gameStop() === true){
-          gameOver('All player ships are dowm!')
+          gameOver(playerBoard, 'Ooops, you lost!');
         }
       }, 500);
       box.parentNode.replaceChild(box.cloneNode(), box);

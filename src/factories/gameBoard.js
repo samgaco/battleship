@@ -57,13 +57,21 @@ const gameBoard = ((ships = []) => {
       return this.table[coord[0]][coord[1]]
     },
 
-    gameStop(){
+    shipsSunk(){
       let counter = 0;
       this.ships.forEach(ship => {
         if(ship.isSunk() === true){
             counter += 1  }
       })
-      return counter === this.ships.length;
+      return counter;
+    },
+
+    shipsLeft(){
+      return this.ships.length - this.shipsSunk();
+    },
+
+    gameStop(){
+      return this.shipsSunk() === this.ships.length;
            }
     }
 })
