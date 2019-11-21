@@ -3,23 +3,23 @@ import player from '../factories/player';
 
 const DomTasks = (() => {
 
-  const drawRows = () => {
+  const drawRows = (type) => {
     let rows = []
     for(let i = 0; i < 10; i += 1){
       let newRow = document.createElement('div');
       newRow.classList.add('row');
-      newRow.setAttribute('id', `row-${i}`);
+      newRow.setAttribute('id', `${type}-board-row-${i}`);
       rows.push(newRow);
     }
     return rows;
   }
 
-  const drawBoxes = () => {
-    let rows = drawRows();
+  const drawBoxes = (type) => {
+    let rows = drawRows(type);
     rows.forEach((row, index) => {
       for(let i = 0; i < 10; i += 1){
         let box = document.createElement('div');
-        box.setAttribute('id', `row-${index}-${i}`)
+        box.setAttribute('id', `${type}-row-${index}-${i}`)
         box.dataset.coordinates = `${index}${i}`;
         box.classList.add('box');
         row.appendChild(box);
@@ -29,23 +29,35 @@ const DomTasks = (() => {
   }
 
   const drawBoards = () => {
-    const playerRows = drawBoxes();
+    const playerRows = drawBoxes('player');
     playerRows.forEach(row => {
       document.querySelector('#player-board').appendChild(row);
     })
 
-    const aiRows = drawBoxes();
+    const aiRows = drawBoxes('ai');
     aiRows.forEach(row => {
       document.querySelector('#ai-board').appendChild(row);
     })
   }
 
-  const fillBoxes = (filledBoard, id) => {
+  const addAiAttackFunctionality = (filledBoard, box, playerai) =>{
+    box.addEventListener('click', () =>{
+          console.log(playerai)
+          let coorAI = playerai.aiPlay();
+          let coorX = coorAI[0];
+          let coorY = coorAI[1];
+          let mark = filledBoard.receiveAttack([coorX, coorY])
+          document.getElementById(`ai-row-${coorAI[0]}-${coorAI[1]}`).textContent = mark;
+    })
+}
+
+
+  const fillBoxes = (filledBoard, id, playerai = false) => {
       document.getElementById(id).childNodes.forEach((row, indexRow) =>{
         row.childNodes.forEach((box, indexBox) => {
-          if(id === 'ai-board'){
+          if(id === 'ai-board' && playerai){
             box.textContent = '';
-            // how to attack with the AI here
+            addAiAttackFunctionality(filledBoard, box, playerai)
           }else{
             box.textContent =  filledBoard.table[indexRow-1][indexBox];
             addAttackFunctionality(filledBoard, box); 
@@ -71,8 +83,8 @@ const DomTasks = (() => {
     let aiBoard = gameController.initializeBoard2();
     let playerai = player();
     drawBoards();
-    fillBoxes(playerBoard,'player-board');
-    fillBoxes(aiBoard, 'ai-board');
+    fillBoxes(playerBoard,'player-board', false);
+    fillBoxes(aiBoard, 'ai-board', playerai);
   }
 
   return {renderBoards}
