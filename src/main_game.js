@@ -1,11 +1,11 @@
-import gameBoard from './factories/gameBoard';
+import gBoard from './factories/gameBoard';
 import newShip from './factories/ship';
 import DomTasks from './DomTasks/dom_manager';
 
 
 const gameController = (() => {
   const initializeBoard2 = (ai = false) => {
-    const board = gameBoard();
+    const board = gBoard();
     const ship1 = newShip(1);
     const ship2 = newShip(2);
     const ship3 = newShip(3);
@@ -40,7 +40,7 @@ const gameController = (() => {
   };
 
   const initializeBoard3 = (ai = false) => {
-    const board = gameBoard();
+    const board = gBoard();
     const ship1 = newShip(1);
     const ship2 = newShip(2);
     const ship3 = newShip(3);
@@ -81,7 +81,7 @@ const gameController = (() => {
   };
 
   const initializeBoard1 = (ai = false) => {
-    const board = gameBoard();
+    const board = gBoard();
     const ship1 = newShip(1);
     const ship2 = newShip(2);
     const ship3 = newShip(3);
