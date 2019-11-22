@@ -131,6 +131,7 @@ const DomTasks = (() => {
   const renderBoards = () => {
     let boardsAvailable = [gameController.initializeBoard1(), gameController.initializeBoard2(),  gameController.initializeBoard3()]
     const playerBoard = boardsAvailable[Math.round(Math.random()*2)];
+    boardsAvailable.splice(boardsAvailable.indexOf(playerBoard), 1);
     const aiBoard = boardsAvailable[Math.round(Math.random()*2)];
     const playerai = player();
     drawBoards();
