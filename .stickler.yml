@@ -9,3 +9,4 @@ files:
   ignore:
       - 'dist/*'
       - 'webpack.config.js'
+      - 'src/factories/gameBoard.js'
