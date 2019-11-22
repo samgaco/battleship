@@ -18,7 +18,7 @@ const gameBoard = ((ships = []) => ({
     const y = [coor[0][1], coor[lastC][1]];
     const firstPostDiff = x[1] - x[0];
     const lastPostDiff = y[1] - y[0];
-    const distance = Math.sqrt((firstPostDiff) ** 2 + (lastPostDiff) ** 2);
+    const distance = Math.sqrt(((firstPostDiff) ** 2) + ((lastPostDiff) ** 2));
     const validCoor = distance === ship.length - 1;
 
     if (validCoor) {
