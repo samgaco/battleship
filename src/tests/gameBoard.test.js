@@ -1,5 +1,6 @@
-const gameBoard = require('../factories/gameBoard');
-const newShip = require('../factories/ship');
+import gameBoard from '../factories/gameBoard';
+import newShip from '../factories/ship';
+
 
 // testing table
 test('it should return an array with ten arrays inside', () => {

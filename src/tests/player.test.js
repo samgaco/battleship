@@ -1,4 +1,4 @@
-const player = require('../factories/player');
+import player from '../factories/player';
 
 // testing its turn
 test('its turn is true by default', () => {

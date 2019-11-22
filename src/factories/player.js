@@ -118,4 +118,4 @@ const player = ((turnV = true) => {
   };
 });
 
-module.exports = player;
+export default player;

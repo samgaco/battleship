@@ -1,4 +1,4 @@
-const newShip = require('../factories/ship');
+import newShip from '../factories/ship';
 
 const makaveli = newShip(4);
 

@@ -75,4 +75,4 @@ const gameBoard = ((ships = []) => ({
 }));
 
 
-module.exports = gameBoard;
+export default gameBoard;

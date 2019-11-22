@@ -10,4 +10,4 @@ const newShip = (length => ({
   },
 }));
 
-module.exports = newShip;
+export default newShip;
