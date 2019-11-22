@@ -88,8 +88,6 @@ const DomTasks = (() => {
     const coorY = Number(box.dataset.coordinates[1]);
     const mark = filledBoard.receiveAttack([coorX, coorY]);
 
-    // box.textContent = mark;
-
     addStylesBoxes(mark, box);
     if (filledBoard.gameStop() === true) {
       gameOver(filledBoard, 'You win the game!');
@@ -131,8 +129,9 @@ const DomTasks = (() => {
   };
 
   const renderBoards = () => {
-    const playerBoard = gameController.initializeBoard1();
-    const aiBoard = gameController.initializeBoard2();
+    let boardsAvailable = [gameController.initializeBoard1(), gameController.initializeBoard2()]
+    const playerBoard = boardsAvailable[Math.round(Math.random()*1)];
+    const aiBoard = boardsAvailable[Math.round(Math.random()*1)];
     const playerai = player();
     drawBoards();
     fillBoxes(playerBoard, 'player-board', playerai);
