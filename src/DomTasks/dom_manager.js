@@ -129,8 +129,16 @@ const DomTasks = (() => {
   };
 
   const renderBoards = () => {
-    const boardsAvailable = [gameController.initializeBoard1(), gameController.initializeBoard2(), gameController.initializeBoard3()];
-    const boardsAvailablePlayer = [gameController.initializeBoard1(true), gameController.initializeBoard2(true), gameController.initializeBoard3(true)];
+    const boardsAvailable = [
+      gameController.initializeBoard1(),
+      gameController.initializeBoard2(),
+      gameController.initializeBoard3()
+    ];
+    const boardsAvailablePlayer = [
+      gameController.initializeBoard1(true),
+      gameController.initializeBoard2(true),
+      gameController.initializeBoard3(true)
+    ];
     const playerBoard = boardsAvailablePlayer[Math.round(Math.random() * 2)];
     const aiBoard = boardsAvailable[Math.round(Math.random() * 2)];
     const playerai = player();

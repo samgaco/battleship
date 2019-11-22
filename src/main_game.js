@@ -27,7 +27,13 @@ const gameController = (() => {
 
       const r5 = Math.round(Math.random() * 4);
       const r5s = Math.round(Math.random() * 2);
-      board.placeShip(ship5, [[r5s, r5], [r5s, r5 + 1], [r5s, r5 + 2], [r5s, r5 + 3], [r5s, r5 + 4]]);
+      board.placeShip(ship5, [
+        [r5s, r5],
+        [r5s, r5 + 1],
+        [r5s, r5 + 2],
+        [r5s, r5 + 3],
+        [r5s, r5 + 4]
+      ]);
     }
 
     return board;
@@ -57,7 +63,13 @@ const gameController = (() => {
 
       const r5 = Math.round(Math.random() * 5);
       const r5s = Math.round(Math.random() * 2);
-      board.placeShip(ship5, [[r5, r5s + 7], [r5 + 1, r5s + 7], [r5 + 2, r5s + 7], [r5 + 3, r5s + 7], [r5 + 4, r5s + 7]]);
+      board.placeShip(ship5, [
+        [r5, r5s + 7],
+        [r5 + 1, r5s + 7],
+        [r5 + 2, r5s + 7],
+        [r5 + 3, r5s + 7],
+        [r5 + 4, r5s + 7]
+      ]);
     }
 
     return board;

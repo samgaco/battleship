@@ -1,4 +1,4 @@
-const newShip = ((length) => ({
+const newShip = (length => ({
   length,
   position: [],
   hits: 0,
