@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <a href="https://rawcdn.githack.com/samgaco/todolist/4c009a1851daeb5401494aabbd50beccec54308f/dist/index.html">
+  <a href="https://rawcdn.githack.com/samgaco/battleship/99636649edc187e84328dea52993590378bfb4dc/dist/index.html">
     <img src="dist/logo.png" alt="Logo">
   </a>
 
@@ -10,7 +10,7 @@
     JavaScript Project
     <br />
     <br />
-    <a href="https://raw.githack.com/samgaco/battleship/randomships/dist/index.html">View Demo</a>
+    <a href="https://rawcdn.githack.com/samgaco/battleship/99636649edc187e84328dea52993590378bfb4dc/dist/index.html">View Demo</a>
     ·
     <a href="https://github.com/samgaco/battleship/issues">Report Bug</a>
     ·
@@ -32,7 +32,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-  <a href="#">
+  <a href="https://rawcdn.githack.com/samgaco/battleship/99636649edc187e84328dea52993590378bfb4dc/dist/index.html">
     <img src="./dist/about.png" alt="Logo">
   </a>
 
