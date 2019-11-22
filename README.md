@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://rawcdn.githack.com/samgaco/todolist/4c009a1851daeb5401494aabbd50beccec54308f/dist/index.html">
-    <img src="dist/shiplogo.png" alt="Logo">
+    <img src="dist/logo.png" alt="Logo">
   </a>
 
   <h3 align="center">Battleship</h3>
@@ -38,13 +38,16 @@
 
 Based on the [Battleship](https://www.theodinproject.com/courses/javascript/lessons/battleship) in the odin project as a part of the Microverse curriculum.
 
-The purpose is to get a good understanding how persistent data can be stored on the browser using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+The purpose is to get a good understanding on Test Driven development and get some knowledge about game development.
+You play againist the computer.
 
 The following are actions that can be done on the application.
-  1. Create a new project.
-  2. Add tasks for the selected project.
-  3. Edit tasks for a particular project.
-  4. Clear all the data in the [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+  1. Guess a the location of a ship in the Computer player grid.
+  2. Based on your choice, the background of the chosen location changes accordingly.
+  3. The shot can either be:
+    * A hit.
+    * A miss
+  4. The player who hits all the ships first wins the game.
 
 
 ### Built With
