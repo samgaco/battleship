@@ -45,8 +45,8 @@ The following are actions that can be done on the application.
   1. Guess a the location of a ship in the Computer player grid.
   2. Based on your choice, the background of the chosen location changes accordingly.
   3. The shot can either be:
-    * A hit.
-    * A miss
+    - A hit.
+    - A miss.
   4. The player who hits all the ships first wins the game.
 
 
