@@ -11,6 +11,7 @@ const gameController = (() => {
     const ship3 = newShip(3);
     const ship4 = newShip(4);
     const ship5 = newShip(5);
+    
     board.placeShip(ship1, [[0, 0]]);
     board.placeShip(ship2, [[2, 0], [2, 1]]);
     board.placeShip(ship3, [[5, 5], [6, 5], [7, 5]]);

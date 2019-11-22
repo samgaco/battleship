@@ -115,7 +115,7 @@ const player = ((turnV = true) => {
   };
 
   return {
-    aiPlay, PosTaken, turn, movesdone,
+    aiPlay, PosTaken, turn, movesdone, coorMaps,
   };
 });
 
