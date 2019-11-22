@@ -32,7 +32,7 @@ const gameController = (() => {
         [r5s, r5 + 1],
         [r5s, r5 + 2],
         [r5s, r5 + 3],
-        [r5s, r5 + 4]
+        [r5s, r5 + 4],
       ]);
     }
 
@@ -59,7 +59,12 @@ const gameController = (() => {
     if (ai === false) {
       const r4 = Math.round(Math.random() * 3);
       const r4s = Math.round(Math.random() * 1);
-      board.placeShip(ship4, [[r4s + 8, r4], [r4s + 8, r4 + 1], [r4s + 8, r4 + 2], [r4s + 8, r4 + 3]]);
+      board.placeShip(ship4, [
+        [r4s + 8, r4],
+        [r4s + 8, r4 + 1],
+        [r4s + 8, r4 + 2],
+        [r4s + 8, r4 + 3],
+      ]);
 
       const r5 = Math.round(Math.random() * 5);
       const r5s = Math.round(Math.random() * 2);
@@ -68,7 +73,7 @@ const gameController = (() => {
         [r5 + 1, r5s + 7],
         [r5 + 2, r5s + 7],
         [r5 + 3, r5s + 7],
-        [r5 + 4, r5s + 7]
+        [r5 + 4, r5s + 7],
       ]);
     }
 
