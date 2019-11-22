@@ -105,7 +105,7 @@ const player = ((turnV = true) => {
     100: [9, 9],
   };
 
-  const aiPlay = (moveAi = PosTaken[Math.floor(Math.random() * PosTaken.length)], last = false) => {
+  const aiPlay = (moveAi = PosTaken[Math.floor(Math.random() * PosTaken.length)]) => {
     Math.round();
     const randMove = moveAi;
     PosTaken.splice(PosTaken.indexOf(randMove), 1);
