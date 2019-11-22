@@ -138,3 +138,41 @@ body{
 #red{
   background-color: red;
 }
+
+@media only screen and (max-width:950px){
+  .box{
+    height: 2em;
+    width: 2em;
+  }
+}
+
+@media only screen and (max-width:730px){
+  .box{
+    height: 1.6em;
+    width: 1.6em;
+  }
+
+  .player-board-info, .ai-board-info{
+    font-size: 1.6em;
+  }
+}
+
+@media only screen and (max-width:590px){
+  .box{
+    height: 1.2em;
+    width: 1.2em;
+  }
+  .player-board-info, .ai-board-info{
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width:430px){
+  .box{
+    height: 1em;
+    width: 1em;
+  }
+  .player-board-info, .ai-board-info{
+    font-size: 1em;
+  }
+}
