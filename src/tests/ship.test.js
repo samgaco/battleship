@@ -12,7 +12,7 @@ test('Increases the number of hit after a successful hit', () => {
 });
 
 test('The ship sinks when the number of hits equals the length of the ship', () => {
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i+=1 {
     makaveli.hit();
   }
   expect(makaveli.isSunk()).toBe(true);
