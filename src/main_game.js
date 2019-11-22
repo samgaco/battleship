@@ -5,7 +5,7 @@ import DomTasks from './DomTasks/dom_manager';
 
 
 const gameController = (() => {
-  const initializeBoard2 = () => {
+  const initializeBoard2 = (ai = false) => {
 
     const board = gameBoard();
     const ship1 = newShip(1);
@@ -27,14 +27,16 @@ const gameController = (() => {
     let r4 =  Math.round(Math.random()*5)
     board.placeShip(ship4, [[9, r4], [9, r4+1], [9, r4+2], [9, r4+3]]);
 
-    let r5 = Math.round(Math.random()*4)
-    let r5s = Math.round(Math.random()*2)
-    board.placeShip(ship5, [[r5s, r5], [r5s, r5+1], [r5s, r5+2], [r5s, r5+3], [r5s, r5+4]]);
-    return board;
+    if(ai === false){
+      let r5 = Math.round(Math.random()*4)
+      let r5s = Math.round(Math.random()*2)
+      board.placeShip(ship5, [[r5s, r5], [r5s, r5+1], [r5s, r5+2], [r5s, r5+3], [r5s, r5+4]]);
+    }
 
+    return board;
   };
 
-  const initializeBoard3 = () => {
+  const initializeBoard3 = (ai = false) => {
 
     const board = gameBoard();
     const ship1 = newShip(1);
@@ -57,13 +59,16 @@ const gameController = (() => {
     let r4s= Math.round(Math.random()*1)
     board.placeShip(ship4, [[r4s+8, r4], [r4s+8, r4+1], [r4s+8, r4+2], [r4s+8, r4+3]]);
 
-    let r5 = Math.round(Math.random()*5)
-    let r5s = Math.round(Math.random()*2)
-    board.placeShip(ship5, [[r5,r5s+7], [r5+1, r5s+7], [r5+2, r5s+7], [r5+3, r5s+7], [r5+4, r5s+7]]);
+    if(ai===false){
+      let r5 = Math.round(Math.random()*5)
+      let r5s = Math.round(Math.random()*2)
+      board.placeShip(ship5, [[r5,r5s+7], [r5+1, r5s+7], [r5+2, r5s+7], [r5+3, r5s+7], [r5+4, r5s+7]]);
+    }
+  
     return board;
   };
 
-  const initializeBoard1 = () => {
+  const initializeBoard1 = (ai = false) => {
 
     const board = gameBoard();
     const ship1 = newShip(1);
@@ -85,8 +90,11 @@ const gameController = (() => {
     let r4= Math.round(Math.random()*6)
     board.placeShip(ship4, [[9, r4], [9, r4+1], [9, r4+2], [9, r4+3]]);
 
-    let r5 = Math.round(Math.random()*5)
-    board.placeShip(ship5, [[8, r5], [8, r5+1], [8, r5+2], [8, r5+3], [8, r5+4]]);
+    if(ai === false){
+      let r5 = Math.round(Math.random()*5)
+      board.placeShip(ship5, [[8, r5], [8, r5+1], [8, r5+2], [8, r5+3], [8, r5+4]]);
+    }
+   
     return board;
   };
 

@@ -105,10 +105,9 @@ const player = ((turnV = true) => {
     100: [9, 9],
   };
 
-
-  const aiPlay = () => {
+  const aiPlay = (moveAi = PosTaken[Math.floor(Math.random() * PosTaken.length)], last = false) => {
     Math.round();
-    const randMove = PosTaken[Math.floor(Math.random() * PosTaken.length)];
+    const randMove = moveAi;
     PosTaken.splice(PosTaken.indexOf(randMove), 1);
     movesdone.push(randMove);
     return coorMaps[randMove];
