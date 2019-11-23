@@ -1,0 +1,261 @@
+.box {
+  height: 2.5em;
+  width: 2.5em;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 7px 2px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+body{
+  background: url("./back.jpg");
+  background-size: auto;
+  position: relative;
+}
+
+.box:hover{
+  background: rgb(250, 185, 64);
+}
+
+.player-board-info{
+  position: absolute;
+  top: 6vh;
+  left: 5vw;
+  color: #fff;
+  font-size: 2em;
+  font-family: 'Bubblegum Sans', cursive;
+  margin-top: 2%;
+
+}
+
+.ai-board-info{
+  position: absolute;
+  top: 6vh;
+  right: 5vw;
+  color: #fff;
+  font-size: 2em;
+  font-family: 'Bubblegum Sans', cursive;
+  margin-top: 2%;
+
+}
+
+.boards-container {
+  position: relative;
+  padding-top: 20vh;
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.row, .box{
+  margin: 0;
+  padding: 0;
+}
+.game-over{
+  display: none;
+  z-index: 10;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.7)
+    );
+  color: #fff;
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+.game-over-msg{
+  display: inline-block;
+  width: 60vw;
+  height: 40vh;
+  margin: 0 auto;
+  margin-top: 30vh;
+  margin-left: 20vw;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 7px 2px;
+}
+
+#over{
+  margin-top: 2.5em;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 1.5em;
+}
+
+#restart{
+  border-radius: 2em;
+  color: #fff;
+  background-color: #000;
+  width: 8em;
+  height: 4em;
+  margin: 2em 0 0 auto;
+}
+
+.color-meaning{
+  width: 80vw;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 2em;
+  vertical-align: middle;
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+.color-meaning span{
+  height: 2em;
+  line-height: 2em;
+  display: inline-block;
+  padding-right: 1em;
+}
+
+.color-cont{
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.color{
+  width: 2em;
+  height: 2em;
+  float: right;
+}
+
+#restart:hover{
+  color: #000;
+  background-color: #fff;
+}
+
+#black{
+  background-color: #000;
+}
+
+#blue{
+  background-color: blue;
+}
+
+#light-blue{
+  background-color: rgb(123, 214, 226);
+}
+
+#red{
+  background-color: red;
+}
+
+/* Navigation bar & logo */
+
+h1, h2{
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+@media only screen and (max-width: 1200px){
+  .navlogo{
+    height: 3rem;
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.5);
+    border: solid 2px rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    z-index: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  nav img{
+    min-width: 100px;
+    max-width: 100px;
+    margin-top: 10px;
+    position: relative;
+    bottom: 12px;
+  }
+
+  .main-logo{
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .navlogo{
+    height: 3rem;
+    position: absolute;
+    top: 0;
+    z-index: 20px;
+    margin: 13% 0 0 43%;
+    background-color: rgba(245, 245, 245, 0.5);
+
+    -moz-border-radius: 50px/50px;
+    -webkit-border-radius: 50px 50px;
+    border-radius: 99px/99px;
+    border: solid 2px rgb(255, 255, 255);
+    width: 190px;
+    height: 190px;
+  }
+
+  nav img{
+    width: 80%;
+    position: relative;
+    top: 45px;
+    left: 20px;
+  }
+
+
+  .main-logo{
+    font-size: 1.6rem;
+    margin: 30% 0 0 28%;
+  }
+
+
+}
+
+
+
+/* Media queries */
+
+@media only screen and (max-width:950px){
+  .box{
+    height: 2em;
+    width: 2em;
+  }
+  .player-board-info, .ai-board-info{
+    font-size: 1.6em;
+    margin-top: 7%;
+  }
+}
+
+@media only screen and (max-width:730px){
+  .box{
+    height: 1.6em;
+    width: 1.6em;
+  }
+
+  .player-board-info, .ai-board-info{
+    font-size: 1.6em;
+    margin-top: 7%;
+  }
+}
+
+@media only screen and (max-width:590px){
+  .box{
+    height: 1.2em;
+    width: 1.2em;
+  }
+  .player-board-info, .ai-board-info{
+    font-size: 1.3em;
+    margin-top: 7%;
+
+  }
+}
+
+@media only screen and (max-width:430px){
+  .box{
+    height: 1em;
+    width: 1em;
+  }
+  .player-board-info, .ai-board-info{
+    font-size: 1em;
+    margin-top: 7%;
+
+  }
+}
