@@ -48,6 +48,29 @@ The following are actions that can be done on the application.
   4. The player who hits all the ships first wins the game.
 
 
+### Usage
+Clone the repository:
+```sh
+git clone https://github.com/wathigo/battleship.git
+```
+Cd into the cloned repository:
+```sh
+cd battleship
+```
+Install dependencies:
+```sh
+npm install
+```
+Start the development server:
+```sh
+npm start
+```
+### Testing
+To run the tests, run:
+```sh
+npm test
+```
+
 ### Built With
 * [JavaScript](https://www.javascript.com/)
 * [webpack](https://webpack.js.org/)
